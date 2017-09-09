@@ -13,7 +13,7 @@ function getFullText(content, tagsXmlArray) {
 	const result = matcher.matches.map(function (match) {
 		return match.array[2];
 	});
-	return wordToUtf8(convertSpaces(result.join("")));
+	return wordToUtf8(convertSpaces(result.join(" ")));
 }
 
 module.exports = class XmlTemplater {
