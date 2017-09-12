@@ -72,7 +72,6 @@
       "FAST=true mocha --full-trace --check-leaks es6/tests/index.js",
     "test": "npm run convertto:es5 && npm run mocha",
     "test:es5": "npm test",
-    "verifypublishsize": "./verifypublishsize.bash",
-    "postinstall": "npm run compile"
+    "verifypublishsize": "./verifypublishsize.bash"
   }
 }
