@@ -2,7 +2,8 @@
   "name": "docxtemplater",
   "version": "3.1.7",
   "author": "Edgar Hipp",
-  "description": ".docx generator working with templates and data (like Mustache)",
+  "description":
+    ".docx generator working with templates and data (like Mustache)",
   "contributors": [
     {
       "name": "Edgar Hipp"
@@ -12,12 +13,7 @@
   "bin": {
     "docxtemplater": "./js/cli.js"
   },
-  "keywords": [
-    "docx",
-    "templates",
-    "generation",
-    "microsoft word"
-  ],
+  "keywords": ["docx", "templates", "generation", "microsoft word"],
   "repository": {
     "type": "git",
     "url": "https://github.com/open-xml-templating/docxtemplater"
@@ -51,15 +47,20 @@
   "scripts": {
     "generate:doc": "cd docs; rm build/ -rf ; make html",
     "profile": "./profile.bash",
-    "preversion": "npm test && npm run check-casing && npm run lint && rimraf build && mkdirp build && npm run compile && npm run browserify && npm run uglify && npm run verifypublishsize",
+    "preversion":
+      "npm test && npm run check-casing && npm run lint && rimraf build && mkdirp build && npm run compile && npm run browserify && npm run uglify && npm run verifypublishsize",
     "check-casing": "./check-casing.bash",
     "compile": "npm run convertto:es5",
-    "browserify:test": "browserify --insert-global-vars __filename,__dirname -r ./js/tests/index.js -s DocxtemplaterTest > browser/docxtemplater-test.js",
-    "browserify:lib": "node create-min.js js/docxtemplater.js > build/docxtemplater.js",
-    "uglify:lib": "uglifyjs build/docxtemplater.js > build/docxtemplater.min.js",
+    "browserify:test":
+      "browserify --insert-global-vars __filename,__dirname -r ./js/tests/index.js -s DocxtemplaterTest > browser/docxtemplater-test.js",
+    "browserify:lib":
+      "node create-min.js js/docxtemplater.js > build/docxtemplater.js",
+    "uglify:lib":
+      "uglifyjs build/docxtemplater.js > build/docxtemplater.min.js",
     "uglify": "npm run uglify:lib",
     "browserify": "npm run browserify:test && npm run browserify:lib",
-    "convertto:es5": "rimraf js -rf && mkdirp js && npm run babel && cp es6/tests/*.xml js/tests ",
+    "convertto:es5":
+      "rimraf js -rf && mkdirp js && npm run babel && cp es6/tests/*.xml js/tests ",
     "convertto:es5:watch": "npm run babel -- --watch",
     "test:coverage": "istanbul cover _mocha --  es6/tests/index.js",
     "lint": "./check-casing.bash && eslint .",
@@ -67,9 +68,11 @@
     "babel": "babel es6 --out-dir js",
     "mocha": "mocha --full-trace --check-leaks js/tests/index.js",
     "test:es6": "mocha --full-trace --check-leaks es6/tests/index.js",
-    "test:es6:fast": "FAST=true mocha --full-trace --check-leaks es6/tests/index.js",
+    "test:es6:fast":
+      "FAST=true mocha --full-trace --check-leaks es6/tests/index.js",
     "test": "npm run convertto:es5 && npm run mocha",
     "test:es5": "npm test",
-    "verifypublishsize": "./verifypublishsize.bash"
+    "verifypublishsize": "./verifypublishsize.bash",
+    "postinstall": "npm run compile"
   }
 }
